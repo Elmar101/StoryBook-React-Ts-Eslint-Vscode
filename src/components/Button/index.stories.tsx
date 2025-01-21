@@ -7,6 +7,17 @@ const meta: Meta<typeof Button> = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    color: { control: "light" }, // Rəng seçici əlavə edir
+    size: {
+      control: { type: "select", options: ["small", "medium", "large"] }, // Seçim menyusu
+    },
+    onClick: { action: "clicked" }, // "onClick" hadisəsini izləyir
+    variant: {
+      options: ['primary', 'secondary'],
+      control: { type: 'radio' },
+    },
+  },
 };
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -34,6 +45,9 @@ export const Outline: Story = {
     variant: "outline",
     colorscheme: "primary",
     size: "md"
+  },
+  parameters: {
+    backgrounds: { default: "red" }, // Yalnız bu hekayə üçün fərqli arxa fon
   },
 };
 

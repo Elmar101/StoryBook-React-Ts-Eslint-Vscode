@@ -55,12 +55,12 @@ const buttonStyles = cva(
 type ButtonProps = ComponentProps<"button"> & VariantProps<typeof buttonStyles>;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant, size, colorscheme, className, ...props }, ref) => {
+  ({ variant, size, colorscheme, className, ...restProps }, ref) => {
     return (
       <button
         ref={ref}
         className={cn(buttonStyles({ variant, size, colorscheme, className }))}
-        {...props}
+        {...restProps}
       />
     );
   }
